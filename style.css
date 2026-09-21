@@ -93,7 +93,6 @@ body {
 }
 
 .logo-modal-overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -102,13 +101,21 @@ body {
     background: rgba(2, 12, 27, 0.95);
     backdrop-filter: blur(10px);
     z-index: 9999;
+    display: flex;
     justify-content: center;
     align-items: center;
+    
+    /* تغییرات اصلی اینجاست */
+    visibility: hidden; /* در حالت عادی نامرئی است */
+    opacity: 0;         /* شفافیت صفر */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .logo-toggle:checked ~ .logo-modal-overlay {
-    display: flex;
+    visibility: visible; /* وقتی تیک خورد، مرئی میشه */
+    opacity: 1;
 }
+
 
 .close-modal-area {
     position: absolute;
