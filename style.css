@@ -106,7 +106,7 @@ body {
     align-items: center;
 }
 
-.logo-toggle:checked + .logo-modal-overlay {
+.logo-toggle:checked ~ .logo-modal-overlay {
     display: flex;
 }
 

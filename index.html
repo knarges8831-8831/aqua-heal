@@ -12,8 +12,8 @@
 
 <body>
 
-    <!-- منوی ناوبری -->
-    <nav class="navbar">
+       <!-- منوی ناوبری -->
+       <nav class="navbar">
         <div class="logo">
             <input type="checkbox" id="toggleLogo" class="logo-toggle">
             <label for="toggleLogo" class="logo-label">
@@ -26,13 +26,13 @@
             <li><a href="#about">درباره ما</a></li>
             <li><a href="#contact" class="btn-primary">تماس و مشاوره</a></li>
         </ul>
-
-        <!-- مودال رو آوردیم داخل تگ nav تا CSS بتونه ارتباطش رو با چک‌باکس پیدا کنه -->
-        <div class="logo-modal-overlay">
-            <label for="toggleLogo" class="close-modal-area"></label>
-            <img class="modal-content" src="image/logo.jpg" alt="لوگوی بزرگ آکوا هیل">
-        </div>
     </nav>
+
+    <!-- مودال نمایش لوگو (این باید دقیقاً بعد از navbar باشه) -->
+    <div class="logo-modal-overlay">
+        <label for="toggleLogo" class="close-modal-area"></label>
+        <img class="modal-content" src="image/logo.jpg" alt="لوگوی بزرگ آکوا هیل">
+    </div>
 
     <!-- بخش هدر (Hero) -->
     <header id="home" class="hero">
