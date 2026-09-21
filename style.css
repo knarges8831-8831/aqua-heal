@@ -1,78 +1,49 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
 }
 
-
 /* =========================================
-   1. Variables (Root) - Dark Aquatic Theme
+   1. Variables (Root)
    ========================================= */
 :root {
-    /* Colors - Based on the Image */
     --primary-color: #00B4D8;
-    --primary-hover: #0096B4;
     --secondary-color: #00E5FF;
-
-    /* Backgrounds */
     --dark-bg: #020C1B;
     --section-bg: #0A192F;
     --footer-bg: #01050D;
-
-    /* Text Colors */
     --text-light: #FFFFFF;
     --text-muted: #A8B2D1;
     --text-dark: #E2E8F0;
-
-    /* Glassmorphism */
-    --glass-bg: rgba(0, 180, 216, 0.05);
     --glass-border: rgba(0, 229, 255, 0.3);
     --glass-blur: blur(15px);
-
-    /* Background Image (عکس جدید شما) */
-    --image-water: url('water-bg.jpg');
-
-    /* Typography */
+    --image-water: url('image/water-bg.jpg.webp');
     --font-main: 'Vazirmatn', sans-serif;
     --font-black: 900;
     --font-bold: 700;
-
-    /* Spacing & Borders */
-    --radius-sm: 10px;
     --radius-md: 20px;
     --radius-lg: 30px;
     --radius-pill: 50px;
-
-    /* Shadows & Glows */
     --shadow-sm: 0 0 15px rgba(0, 180, 216, 0.3);
-    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
-    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.6);
     --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.4);
     --glow-effect: 0 0 20px rgba(0, 229, 255, 0.4);
-
-    /* Transitions */
     --transition-fast: 0.3s ease;
-    --transition-slow: 0.8s ease-out;
 }
 
 /* =========================================
-   2. Reset & Base Styles
+   2. Base Styles
    ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-main);
-}
-
 body {
     background-color: var(--dark-bg);
     color: var(--text-dark);
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-family: var(--font-main);
 }
 
 /* =========================================
@@ -95,13 +66,73 @@ body {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: var(--font-black);
-    color: var(--secondary-color);
     display: flex;
     align-items: center;
-    gap: 10px;
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.logo-toggle {
+    display: none;
+}
+
+.logo-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    height: 90px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.6));
+    transition: transform 0.3s ease;
+    border-radius: 30%;
+}
+
+.site-logo:hover {
+    transform: scale(1.1);
+}
+
+.logo-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 12, 27, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-toggle:checked + .logo-modal-overlay {
+    display: flex;
+}
+
+.close-modal-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 229, 255, 0.6);
+    animation: zoomIn 0.3s ease;
+    z-index: 2;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 .nav-links {
@@ -112,7 +143,6 @@ body {
 }
 
 .nav-links a {
-    text-decoration: none;
     color: var(--text-light);
     font-weight: var(--font-bold);
     transition: all var(--transition-fast);
@@ -139,34 +169,25 @@ body {
 }
 
 /* =========================================
-   4. Hero Section (استفاده از عکس آب)
+   4. Hero Section
    ========================================= */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     padding: 0 5%;
-
-    /* اعمال عکس آب با یک لایه تیره روی آن برای خوانایی متن */
     background: linear-gradient(rgba(2, 12, 27, 0.7), rgba(2, 12, 27, 0.9)), var(--image-water);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    /* باعث می‌شود عکس هنگام اسکرول ثابت بماند */
     position: relative;
     overflow: hidden;
     animation: waterFlow 20s linear infinite alternate;
-    /* انیمیشن حرکت ملایم آب */
 }
 
 @keyframes waterFlow {
-    0% {
-        background-position: center top;
-    }
-
-    100% {
-        background-position: center bottom;
-    }
+    0% { background-position: center top; }
+    100% { background-position: center bottom; }
 }
 
 .hero-content {
@@ -224,7 +245,6 @@ body {
     color: var(--secondary-color);
     padding: 0.8rem 1.5rem;
     border-radius: var(--radius-pill);
-    text-decoration: none;
     font-weight: var(--font-bold);
     border: 2px solid var(--secondary-color);
     transition: all var(--transition-fast);
@@ -248,7 +268,6 @@ body {
 
 .glass-card {
     background: rgba(2, 12, 27, 0.6);
-    /* تیره‌تر کردن برای خوانایی روی عکس */
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
@@ -284,17 +303,8 @@ body {
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
 }
 
 /* =========================================
@@ -329,7 +339,6 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-
 }
 
 .service-card {
@@ -432,17 +441,14 @@ body {
 }
 
 /* =========================================
-   7. Contact Section (استفاده مجدد از عکس آب)
+   7. Contact Section
    ========================================= */
 .contact {
     padding: 6rem 5%;
-
-    /* اعمال عکس آب در این بخش نیز */
     background: linear-gradient(rgba(2, 12, 27, 0.85), rgba(2, 12, 27, 0.95)), var(--image-water);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -488,7 +494,6 @@ body {
     align-items: center;
     gap: 0.8rem;
     color: var(--text-light);
-    text-decoration: none;
     font-size: 1.3rem;
     font-weight: var(--font-bold);
     background: rgba(0, 229, 255, 0.05);
@@ -535,34 +540,27 @@ footer {
         padding-top: 120px;
         text-align: center;
     }
-
     .hero-content {
         padding-left: 0;
         margin-bottom: 3rem;
     }
-
     .hero h1 {
         font-size: 3rem;
     }
-
     .hero p {
         margin: 0 auto 2rem;
     }
-
     .hero-buttons {
         justify-content: center;
     }
-
     .hero-image {
         width: 100%;
         height: 400px;
     }
-
     .glass-card {
         right: 20px;
         background: rgba(2, 12, 27, 0.8);
     }
-
     .about {
         flex-direction: column;
     }
@@ -572,22 +570,19 @@ footer {
     .nav-links {
         display: none;
     }
-
     .contact-info {
         flex-direction: column;
     }
-
     .contact-card {
         padding: 2rem;
     }
-        .glass-card {
-            position: relative; /* از حالت شناور خارج می‌شود */
-            right: auto;        /* فاصله راست حذف می‌شود */
-            bottom: auto;       /* فاصله پایین حذف می‌شود */
-            width: 100%;        /* عرض کامل می‌گیرد */
-            margin-top: 20px;   /* کمی از بالا فاصله می‌گیرد */
-            text-align: center; /* متن وسط‌چین می‌شود */
-            animation: none;    /* انیمیشن شناور بودن قطع می‌شود */
-        }
-    
+    .glass-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 20px;
+        text-align: center;
+        animation: none;
+    }
 }

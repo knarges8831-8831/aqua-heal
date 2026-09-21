@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هیدروتراپی و آب درمانی | ویژه بانوان</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -17,7 +15,10 @@
     <!-- منوی ناوبری -->
     <nav class="navbar">
         <div class="logo">
-            <i class="fa-solid fa-water"></i> AquaHeal
+            <input type="checkbox" id="toggleLogo" class="logo-toggle">
+            <label for="toggleLogo" class="logo-label">
+                <img src="image/logo.jpg" alt="لوگو آکوا هیل" class="site-logo">
+            </label>
         </div>
         <ul class="nav-links">
             <li><a href="#home">خانه</a></li>
@@ -25,6 +26,12 @@
             <li><a href="#about">درباره ما</a></li>
             <li><a href="#contact" class="btn-primary">تماس و مشاوره</a></li>
         </ul>
+
+        <!-- مودال رو آوردیم داخل تگ nav تا CSS بتونه ارتباطش رو با چک‌باکس پیدا کنه -->
+        <div class="logo-modal-overlay">
+            <label for="toggleLogo" class="close-modal-area"></label>
+            <img class="modal-content" src="image/logo.jpg" alt="لوگوی بزرگ آکوا هیل">
+        </div>
     </nav>
 
     <!-- بخش هدر (Hero) -->
@@ -55,25 +62,21 @@
             <div class="line"></div>
         </div>
         <div class="services-grid">
-            <!-- کارت ۱ -->
             <div class="service-card">
                 <div class="icon-box"><i class="fa-solid fa-spine"></i></div>
                 <h3>ستون فقرات و کمر</h3>
                 <p>کمک به بازتوانی آسیب‌های ستون فقرات، دیسک کمر، تنگی کانال نخاعی و سیاتیک.</p>
             </div>
-            <!-- کارت ۲ -->
             <div class="service-card">
                 <div class="icon-box"><i class="fa-solid fa-bone"></i></div>
                 <h3>مفاصل و زانو</h3>
                 <p>توانبخشی آسیب‌های زانو، آرتروز، تعویض مفصل، مینیسک و رباط. رفع مشکلات مفصل شانه.</p>
             </div>
-            <!-- کارت ۳ -->
             <div class="service-card">
                 <div class="icon-box"><i class="fa-solid fa-heart-pulse"></i></div>
                 <h3>توانبخشی پس از جراحی</h3>
                 <p>بازگشت ایمن و سریع به زندگی عادی پس از جراحی‌های مختلف ارتوپدی.</p>
             </div>
-            <!-- کارت ۴ -->
             <div class="service-card">
                 <div class="icon-box"><i class="fa-solid fa-fire-flame-curved"></i></div>
                 <h3>متابولیسم و تناسب اندام</h3>
@@ -122,6 +125,12 @@
     <footer>
         <p>تمامی حقوق برای کلینیک هیدروتراپی AquaHeal محفوظ است &copy; 2024</p>
     </footer>
+
+    <!-- مودال نمایش لوگو (فقط یک بار در انتهای صفحه) -->
+    <div class="logo-modal-overlay">
+        <label for="toggleLogo" class="close-modal-area"></label>
+        <img class="modal-content" src="image/logo.jpg" alt="لوگوی بزرگ آکوا هیل">
+    </div>
 
     <script src="script.js"></script>
 </body>

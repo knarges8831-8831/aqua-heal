@@ -12,10 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 2. Scroll Reveal Animation (Intersection Observer)
+    // 2. Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.service-card, .about-text, .about-image, .contact-card');
 
-    // Set initial state
     revealElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(50px)';
@@ -27,18 +26,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-                revealObserver.unobserve(entry.target); // Only animate once
+                revealObserver.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.15 // Trigger when 15% of the element is visible
+        threshold: 0.15
     });
 
     revealElements.forEach(el => {
         revealObserver.observe(el);
     });
 
-    // 3. Smooth Scrolling for Navbar Links
+    // 3. Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
